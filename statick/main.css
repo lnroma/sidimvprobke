@@ -1,0 +1,19 @@
+body {
+    max-width: 800px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    margin:auto;
+    height: 100%;
+}
+
+.message-chet {
+    background: #99CCFF;
+}
+
+.message-no-chet {
+    background: #8effdb;
+}
+
+.head {
+    background: cornflowerblue;
+}

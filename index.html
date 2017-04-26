@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>testinghuesting</title>
+    <script src="statick/jquery-3.2.1.js"></script>
+    <link rel="stylesheet" href="statick/main.css">
+    <meta charset="utf-8"/>
+</head>
+<body>
+<span id="container">
+<div class="head">
+    welcome to chat
+</div>
+
+</span>
+<!--<form id="message_send">-->
+    <input id="mess" type="text" style="width: 80%"/>
+    <button type="button" id="send">Отправить</button>
+<!--</form>-->
+</body>
+<script>
+    var conn = new WebSocket('ws://localhost:8080');
+    conn.onopen = function (e) {
+        $('#container').append("<div class='message-no-chet'>Вы подключились к чату заебали пробки точка ру</div><hr/>");
+        $('#container').append("<div class='message-no-chet'>Материться не воспрещаеться!</div><hr/>");
+        $('#container').append("<div class='message-no-chet'>Приятного общения</div><hr/>");
+    };
+
+    conn.onmessage = function (e) {
+        $('#container').append("<div class='message-chet'>"+e.data+"</div><hr/>");
+    };
+
+    $('#send').on('click', function () {
+        var message = $('#mess').val();
+        $('#mess').val('');
+        conn.send(message);
+        console.log(message);
+    });
+</script>
+</html>
