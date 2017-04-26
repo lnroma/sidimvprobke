@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
 <html lang="ru">
 <head>
     <title>testinghuesting</title>
@@ -13,13 +13,11 @@
 </div>
 
 </span>
-<!--<form id="message_send">-->
-    <input id="mess" type="text" style="width: 80%"/>
-    <button type="button" id="send">Отправить</button>
-<!--</form>-->
+    <center><input id="mess" type="text" style="width: 80%"/>
+    <button type="button" id="send">Отправить</button></center>
 </body>
 <script>
-    var conn = new WebSocket('ws://socket.sidimvprobke.com');
+    var conn = new WebSocket('ws://sidimvprobke.com:49181');
     conn.onopen = function (e) {
         $('#container').append("<div class='message-no-chet'>Вы подключились к чату заебали пробки точка ру</div><hr/>");
         $('#container').append("<div class='message-no-chet'>Материться не воспрещаеться!</div><hr/>");
@@ -27,7 +25,7 @@
     };
 
     conn.onmessage = function (e) {
-        $('#container').append("<div class='message-chet'>"+e.data+"</div><hr/>");
+        $('#container').append("<div>"+e.data+"</div><hr/>");
     };
 
     $('#send').on('click', function () {

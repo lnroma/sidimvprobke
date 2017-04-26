@@ -4,6 +4,7 @@ body {
     border-right: 1px solid black;
     margin:auto;
     height: 100%;
+    padding: 4px;
 }
 
 .message-chet {

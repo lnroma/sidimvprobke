@@ -12,8 +12,8 @@ $server = IoServer::factory(
             new Chat()
         )
     ),
-    80,
-    'socket.sidimvprobke.com'
+    8080,
+    '10.100.17.89'
 );
 
 $server->run();
