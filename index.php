@@ -15,7 +15,7 @@
     <div class="panel-heading">
         Добро пожаловать в чат посвящонный пробкам в Москве и области
     </div>
-    <div class="panel-body pre-scrollable" id="#container">
+    <div class="panel-body pre-scrollable" id="container">
     <?php $db = new \MyApp\Db() ?>
     <?php foreach (array_reverse($db->getLastRecords()) as $message): ?>
         <?php if ($message['id'] % 2 == 0): ?>
@@ -46,7 +46,6 @@
         var message = $('#mess').val();
         $('#mess').val('');
         conn.send(message);
-        console.log(message);
     });
 </script>
 </html>
