@@ -5,15 +5,14 @@ use Ratchet\WebSocket\WsServer;
 use MyApp\Chat;
 
 require dirname(__DIR__) . '/vendor/autoload.php';
-
 $server = IoServer::factory(
     new HttpServer(
         new WsServer(
             new Chat()
         )
     ),
-    80,
-    'socket.sidimvprobke.com'
+    8080,
+    '10.100.17.89'
 );
 
 $server->run();
