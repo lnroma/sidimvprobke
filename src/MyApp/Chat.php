@@ -33,7 +33,9 @@ class Chat implements MessageComponentInterface
         $db->insertMessageToHistory($msg);
         
         foreach ($this->clients as $client) {
-            $client->send($msg);
+	   if ($from !== $client) {
+              $client->send($msg);
+	   }
         }
     }
 

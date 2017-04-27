@@ -2,7 +2,7 @@
 <?php require_once('src/MyApp/Db.php'); ?>
 <html lang="ru">
 <head>
-    <title>testinghuesting</title>
+    <title>чат для тех кого заебали пробки</title>
     <script src="statick/jquery-3.2.1.js"></script>
     <link rel="stylesheet" href="statick/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="statick/bootstrap/dist/css/bootstrap-theme.css">
@@ -34,18 +34,24 @@
 </body>
 <script>
     var conn = new WebSocket('ws://sidimvprobke.com:49181');
+
+    $("#container").animate({ scrollTop: $('#container').prop("scrollHeight")}, 1000);
+
     conn.onopen = function (e) {
         $('#container').append("<div class='alert alert-info'>Вы подключились к чату заебали пробки точка ру, материться не воспрещаеться! Приятного общения.</div>");
     };
 
     conn.onmessage = function (e) {
         $('#container').append("<div class='alert alert-success'>" + e.data + "</div>");
+        $("#container").animate({ scrollTop: $('#container').prop("scrollHeight")}, 1000);
     };
 
     $('#send').on('click', function () {
         var message = $('#mess').val();
         $('#mess').val('');
         conn.send(message);
+        $('#container').append("<div class='alert alert-warning'>" + message + "</div>");
+        $("#container").animate({ scrollTop: $('#container').prop("scrollHeight")}, 1000);
     });
 </script>
 </html>
