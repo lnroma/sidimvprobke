@@ -1,21 +1,10 @@
 body {
     max-width: 800px;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
+    /*border-left: 1px solid black;*/
+    /*border-right: 1px solid black;*/
     margin:auto;
     height: 100%;
     padding: 4px;
-    background: #afc2cc;
+    /*background: #ccc4c4;*/
 }
 
-.message-chet {
-    background: #99CCFF;
-}
-
-.message-no-chet {
-    background: #8effdb;
-}
-
-.head {
-    background: cornflowerblue;
-}

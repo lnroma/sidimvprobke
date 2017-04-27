@@ -11,10 +11,11 @@
     <meta charset="utf-8"/>
 </head>
 <body>
-<span id="container">
-    <div class="alert alert-info">
-    Добро пожаловать в чат посвящонный пробкам в Москве и области
-</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Добро пожаловать в чат посвящонный пробкам в Москве и области
+    </div>
+    <div class="panel-body pre-scrollable" id="#container">
     <?php $db = new \MyApp\Db() ?>
     <?php foreach (array_reverse($db->getLastRecords()) as $message): ?>
         <?php if ($message['id'] % 2 == 0): ?>
@@ -23,17 +24,18 @@
             <div class="alert alert-warning"><?php echo $message['message'] ?></div>
         <?php endif; ?>
     <?php endforeach; ?>
-</span>
-<center><input id="mess" type="text" style="width: 80%"/>
-    <button type="button" id="send">Отправить</button>
-</center>
+    </div>
+    <div class="panel-heading">
+        <center><input id="mess" type="text" style="width: 80%"/>
+            <button type="button" id="send">Отправить</button>
+        </center>
+    </div>
+</div>
 </body>
 <script>
     var conn = new WebSocket('ws://sidimvprobke.com:49181');
     conn.onopen = function (e) {
         $('#container').append("<div class='alert alert-info'>Вы подключились к чату заебали пробки точка ру, материться не воспрещаеться! Приятного общения.</div>");
-//        $('#container').append("<div class='alert alert-info'>Материться не воспрещаеться!</div>");
-//        $('#container').append("<div class='alert alert-info'>Приятного общения</div>");
     };
 
     conn.onmessage = function (e) {
