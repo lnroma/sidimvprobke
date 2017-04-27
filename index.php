@@ -1,4 +1,5 @@
 <!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<?php require_once('src/MyApp/Db.php'); ?>
 <html lang="ru">
 <head>
     <title>testinghuesting</title>
@@ -15,7 +16,7 @@
     Добро пожаловать в чат посвящонный пробкам в Москве и области
 </div>
     <?php $db = new \MyApp\Db() ?>
-    <?php foreach ($db->getLastRecords() as $message): ?>
+    <?php foreach (array_reverse($db->getLastRecords()) as $message): ?>
         <?php if ($message['id'] % 2 == 0): ?>
             <div class="alert alert-success"><?php echo $message['message'] ?></div>
         <?php else: ?>
@@ -30,13 +31,13 @@
 <script>
     var conn = new WebSocket('ws://sidimvprobke.com:49181');
     conn.onopen = function (e) {
-        $('#container').append("<div class='alert alert-info'>Вы подключились к чату заебали пробки точка ру</div>");
-        $('#container').append("<div class='alert alert-info'>Материться не воспрещаеться!</div>");
-        $('#container').append("<div class='alert alert-info'>Приятного общения</div>");
+        $('#container').append("<div class='alert alert-info'>Вы подключились к чату заебали пробки точка ру, материться не воспрещаеться! Приятного общения.</div>");
+//        $('#container').append("<div class='alert alert-info'>Материться не воспрещаеться!</div>");
+//        $('#container').append("<div class='alert alert-info'>Приятного общения</div>");
     };
 
     conn.onmessage = function (e) {
-        $('#container').append("<div>" + e.data + "</div><hr/>");
+        $('#container').append("<div class='alert alert-success'>" + e.data + "</div>");
     };
 
     $('#send').on('click', function () {

@@ -13,7 +13,7 @@ class Db {
 
     public function __construct()
     {
-        $this->pdo  = new \PDO('mysql:host=localhost;dbname=sidimvprobke', 'root', 123);
+        $this->pdo  = new \PDO('mysql:host=localhost;dbname=sidimvprobke', 'root', 2132435465);
         $this->pdo->exec("set names utf8");
     }
 

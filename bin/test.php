@@ -5,7 +5,7 @@
  * Date: 26.04.17
  * Time: 21:53
  */
-require_once 'src/MyApp/Db.php';
+require_once dirname(__DIR__) . '/src/MyApp/Db.php';
 use MyApp\Db;
 use MyApp\Chat;
 

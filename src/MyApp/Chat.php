@@ -1,6 +1,8 @@
 <?php
 namespace MyApp;
 
+require_once('Db.php');
+
 use Ratchet\MessageComponentInterface;
 use Ratchet\ConnectionInterface;
 use MyApp\Db;
